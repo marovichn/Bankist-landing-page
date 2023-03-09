@@ -76,39 +76,7 @@ tabsContainer.addEventListener('click', function (e) {
 });
 
 //fade animation
-const handleHover = function (e, opacity) {
-  if (e.target.classList.contains('nav__link')) {
-    const link = e.target;
-    const siblings = link.closest('.nav').querySelectorAll('.nav__link');
-    const logo = link.closest('.nav').querySelector('img');
-
-    siblings.forEach(el => {
-      if (el !== link) {
-        el.style.opacity = opacity;
-      }
-    });
-    logo.style.opacity = opacity;
-  }
-  if (e.target.classList.contains('nav__logo')) {
-    const link = e.target;
-    const siblings = link.closest('.nav').querySelectorAll('.nav__link');
-    const logo = link.closest('.nav').querySelector('img');
-
-    siblings.forEach(el => {
-      if (el !== link) {
-        el.style.opacity = opacity;
-      }
-    });
-  }
-};
-
-nav.addEventListener('mouseover', function (e) {
-  handleHover(e, 0.5);
-});
-
-nav.addEventListener('mouseout', function (e) {
-  handleHover(e, 1);
-});
+//*--**
 
 //sticky navigation
 
@@ -149,30 +117,7 @@ allSections.forEach(function (section) {
 });
 
 //replacing lazy images
-
-const imgTargets = document.querySelectorAll('img[data-src]');
-
-const loadImg = function (entries, observer) {
-  const [entry] = entries;
-
-  if (!entry.isIntersecting) return;
-  //replace data soource
-
-  entry.target.src = entry.target.dataset.src;
-  entry.target.addEventListener('load', function () {
-    entry.target.classList.remove('lazy-img');
-  });
-
-  observer.unobserve(entry.target);
-};
-
-const imgObserver = new IntersectionObserver(loadImg, {
-  root: null,
-  threshold: 0,
-  rootMargin: '200px',
-});
-
-imgTargets.forEach(img => imgObserver.observe(img));
+//********* */
 
 // testimonial slider
 const slider = function () {
